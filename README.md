@@ -31,9 +31,7 @@ Overall discussion
 ### [Command Pallette](./command_pallette.md)
 
 ### [Customizability](./customizability.md)
-Customize in the way, the UI is like building blocks where you put things where you want.
 Customize in the way, you decide the UX, the themes, the animation speed, etc.
-> This may be a long term goal as it may be really hard.
 
 ## Future roadmap we brainstormed
 - Exposed API
@@ -42,7 +40,9 @@ Customize in the way, you decide the UX, the themes, the animation speed, etc.
 - Federalized ease of moderation
 - Federalized tags (between clients, no server interaction)
 - Federalized emotes (between clients, no server interaction)
-
+### [Customizability](./customizability.md)
+Customize in the way, the UI is like building blocks where you put things where you want.
+> This may be a long term goal as it may be really hard.
 
 # Rubric/Rules
 ## Compatibility
