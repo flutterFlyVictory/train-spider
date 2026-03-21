@@ -1,29 +1,13 @@
 # Featureful Matrix Client
 
-## How we handle new features
+## How do we handle new features?
 I, Kami, wrote an entire paragraph about it in this discussion announcement -> <https://github.com/flutterFlyVictory/train-spider/discussions/2>
-
-## Rubric/Rules
-### Compatibility
-Keyboard mouse and trackpad **must** support each other; 
-Basic usage across the board should be:
-If my keyboard can enter a keybind to go to a channel outside of the viewable screen, my mouse and trackpad should be able to do it too.
-
-### Uniqueness
-Keyboard > mouse > trackpad
-If my keyboard is able to open a gui like command pallette via control+k, I should be able to do that on mouse and trackpad for sure.
-> If my keyboard can enter a keybind to go to a channel outside of the viewable screen, my mouse and trackpad should be able to do it too.
-
-How about my mouse and trackpad special features? 
-Well.. you see, a mouse has a middle click option, which most keyboards or people don't simulate it. Which if you did rebind it, bravo to you! However back to the point;
-We allow uniqueness in certain aspects of peripherals -- Trackpad gestures to go back, forward, etc. Middle click to close room^\*1. The keyboard should be able to do those thigns just as easily but in its own unique way i.e. alt+left_arrow to go back, alt+right_arrow to go forward, keybind to close room^*1.
-> [!TIP] ^\*1 - Closing room here means close it from view but not leave.
 
 ## Brainstorming ideas
 Overall discussion 
 - <https://matrix.to/#/#clockwork:kami.boo>
 - Discussion
-> [!NOTE] Below are the roadmap features we intend to implement.
+> [!NOTE] Below are the roadmap features we intend to implement, send in some ideas!
 
 ### [Generic](./generic.md)
 > [!NOTE] No real markdown, things we generally want
@@ -44,7 +28,7 @@ Overall discussion
 
 ### [Keybinds](./keybinds.md)
 
-### [Command Pallette](./command pallette)
+### [Command Pallette](./command_pallette.md)
 
 ### [Customizability](./customizability.md)
 Customize in the way, the UI is like building blocks where you put things where you want.
@@ -58,3 +42,20 @@ Customize in the way, you decide the UX, the themes, the animation speed, etc.
 - Federalized ease of moderation
 - Federalized tags (between clients, no server interaction)
 - Federalized emotes (between clients, no server interaction)
+
+
+# Rubric/Rules
+## Compatibility
+Keyboard mouse and trackpad **must** support each other; 
+Basic usage across the board should be:
+If my keyboard can enter a keybind to go to a channel outside of the viewable screen, my mouse and trackpad should be able to do it too.
+
+## Uniqueness
+Keyboard > mouse > trackpad
+If my keyboard is able to open a gui like command pallette via control+k, I should be able to do that on mouse and trackpad for sure.
+> If my keyboard can enter a keybind to go to a channel outside of the viewable screen, my mouse and trackpad should be able to do it too.
+
+How about my mouse and trackpad special features? 
+Well.. you see, a mouse has a middle click option, which most keyboards or people don't simulate it. Which if you did rebind it, bravo to you! However back to the point;
+We allow uniqueness in certain aspects of peripherals -- Trackpad gestures to go back, forward, etc. Middle click to close room^\*1. The keyboard should be able to do those thigns just as easily but in its own unique way i.e. alt+left_arrow to go back, alt+right_arrow to go forward, keybind to close room^*1.
+> [!TIP] ^\*1 - Closing room here means close it from view but not leave.
