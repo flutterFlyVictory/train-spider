@@ -11,8 +11,6 @@ Overall discussion
 > Below are the roadmap features we intend to implement, send in some ideas!
 
 ### [Generic](./generic.md)
-> [!NOTE] 
-> No real markdown, things we generally want
 - Styling that you'd expect with keybinds you'd expect. (Bold, italics, etc.)
 - Notes, Expanded notes
 - Better bridge integration/support
