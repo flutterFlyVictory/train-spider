@@ -18,7 +18,7 @@ Overall discussion
 - Default Gif running
 - Video player built-in (might be hard and resource intensive)
 - Ublock zapper utility for elements customizability -> refer to [Customizability](#Customizability)
- 
+- Custom Emoji and Sticker Usage and Addition support(Since most clients lack proper support for it) 
 ### [UI](./UI.md)
 - Proper padding between current and previous user, proper replies.
 
