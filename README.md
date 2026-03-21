@@ -7,10 +7,12 @@ I, Kami, wrote an entire paragraph about it in this discussion announcement -> <
 Overall discussion 
 - <https://matrix.to/#/#clockwork:kami.boo>
 - Discussion
-> [!NOTE] Below are the roadmap features we intend to implement, send in some ideas!
+> [!NOTE] 
+> Below are the roadmap features we intend to implement, send in some ideas!
 
 ### [Generic](./generic.md)
-> [!NOTE] No real markdown, things we generally want
+> [!NOTE] 
+> No real markdown, things we generally want
 - Styling that you'd expect with keybinds you'd expect. (Bold, italics, etc.)
 - Notes, Expanded notes
 - Better bridge integration/support
@@ -58,4 +60,5 @@ If my keyboard is able to open a gui like command pallette via control+k, I shou
 How about my mouse and trackpad special features? 
 Well.. you see, a mouse has a middle click option, which most keyboards or people don't simulate it. Which if you did rebind it, bravo to you! However back to the point;
 We allow uniqueness in certain aspects of peripherals -- Trackpad gestures to go back, forward, etc. Middle click to close room^\*1. The keyboard should be able to do those thigns just as easily but in its own unique way i.e. alt+left_arrow to go back, alt+right_arrow to go forward, keybind to close room^*1.
-> [!TIP] ^\*1 - Closing room here means close it from view but not leave.
+> [!TIP] 
+> ^\*1 - Closing room here means close it from view but not leave.
