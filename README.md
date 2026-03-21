@@ -1,1 +1,1 @@
-# Featureful Matrix client
+# Featureful Matrix Client
