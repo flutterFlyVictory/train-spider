@@ -50,14 +50,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderRooms() {
-        roomsList.innerHTML = rooms.map(r => `
-            <li class="room-item${r.id === currentRoom.id ? ' active' : ''}" data-id="${r.id}" title="${r.name}">
-                <div style="flex-grow: 1; display: flex; align-items: center; overflow: hidden;">
-                    <span class="room-hash">#</span><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${r.name}</span>
-                </div>
-                ${r.unread ? `<span class="notification-badge" style="position:static; margin-left:8px; font-size:10px;">${r.unread}</span>` : ''}
-            </li>
-        `).join('');
+        // Clear existing rooms
+        roomsList.textContent = '';
+
+        rooms.forEach(r => {
+            const li = document.createElement('li');
+            li.className = 'room-item' + (r.id === currentRoom.id ? ' active' : '');
+            if (r.id != null) {
+                li.dataset.id = String(r.id);
+            }
+            if (r.name != null) {
+                li.title = String(r.name);
+            }
+
+            const contentDiv = document.createElement('div');
+            contentDiv.style.flexGrow = '1';
+            contentDiv.style.display = 'flex';
+            contentDiv.style.alignItems = 'center';
+            contentDiv.style.overflow = 'hidden';
+
+            const hashSpan = document.createElement('span');
+            hashSpan.className = 'room-hash';
+            hashSpan.textContent = '#';
+
+            const nameSpan = document.createElement('span');
+            nameSpan.style.overflow = 'hidden';
+            nameSpan.style.textOverflow = 'ellipsis';
+            nameSpan.style.whiteSpace = 'nowrap';
+            if (r.name != null) {
+                nameSpan.textContent = String(r.name);
+            }
+
+            contentDiv.appendChild(hashSpan);
+            contentDiv.appendChild(nameSpan);
+            li.appendChild(contentDiv);
+
+            if (r.unread) {
+                const badge = document.createElement('span');
+                badge.className = 'notification-badge';
+                badge.style.position = 'static';
+                badge.style.marginLeft = '8px';
+                badge.style.fontSize = '10px';
+                badge.textContent = String(r.unread);
+                li.appendChild(badge);
+            }
+
+            roomsList.appendChild(li);
+        });
     }
 
     function renderMessages(msgs) {
