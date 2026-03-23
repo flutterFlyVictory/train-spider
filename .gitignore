@@ -26,3 +26,6 @@ src-tauri/gen/schemas/
 *.sln
 *.sw?
 *.local
+
+# Nix
+.direnv
