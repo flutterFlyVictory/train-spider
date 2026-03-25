@@ -1,6 +1,7 @@
 {
   mkShell,
   lib,
+  cargo, # Added here
   cargo-mommy,
   clang,
   clippy,
@@ -8,33 +9,40 @@
   rustfmt,
   rust-analyzer-unwrapped,
   rustPlatform,
-  # gdk-pixbuf,
-  # glib,
-  # gio-sharp,
-  # gobject-instropection-unwrapped,
-
-  # Tauri documentration
-  # Lib
-  webkitgtk,
+  webkitgtk_4_1,
   gtk3,
   cairo,
   gdk-pixbuf,
   glib,
   dbus,
-  openssl_3,
+  openssl,
   librsvg,
   gsettings-desktop-schemas,
-
-  # Packages
   curl,
+  sqlite,
   wget,
   pkg-config,
-  libsoup,
+  libsoup_3,
 }:
+let
+  runtimeLib = [
+    webkitgtk_4_1
+    gtk3
+    cairo
+    gdk-pixbuf
+    glib
+    dbus
+    openssl
+    librsvg
+    sqlite
+  ];
+in
 mkShell {
   name = "tauri-gui-devENV";
   strictDeps = true;
+
   nativeBuildInputs = [
+    cargo
     cargo-mommy
     clang
     clippy
@@ -42,30 +50,23 @@ mkShell {
     rustfmt
     rust-analyzer-unwrapped
     rustPlatform.bindgenHook
+    pkg-config
+    sqlite
   ];
+
   buildInputs = [
     curl
     dbus
     glib
     gtk3
-    libsoup
+    libsoup_3
     librsvg
-    pkg-config
-    openssl_3
-    webkitgtk
+    openssl
+    webkitgtk_4_1
     wget
-  ];
-  lib = [
-    webkitgtk
-    gtk3
-    cairo
-    gdk-pixbuf
-    glib
-    dbus
-    openssl_3
-    librsvg
+    sqlite
   ];
   env.RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
-  env.LD_LIBRARY_PATH = "${lib.makeLibraryPath lib}:$LD_LIBRARY_PATH";
+  env.LD_LIBRARY_PATH = "${lib.makeLibraryPath runtimeLib}:$LD_LIBRARY_PATH";
   env.XDG_DATA_DIRS = "${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}:${gtk3}/share/gsettings-schemas/${gtk3.name}:$XDG_DATA_DIRS";
 }

@@ -1,6 +1,6 @@
 {
   description = "Matrix Rust client that has a familiar UI.";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
   outputs =
     {
@@ -19,13 +19,13 @@
       packages = forAllSystem (
         pkgs: system: {
           default = self.packages.${system}.tauri-gui;
-          tauri-gui = pkgs.callPackage ./nix/package.nix { };
+          tauri-gui = pkgs.callPackage ./package.nix { };
         }
       );
 
       devShells = forAllSystem (
         pkgs: system: {
-          default = pkgs.${system}.callPackage ./nix/shell.nix { };
+          default = pkgs.callPackage ./shell.nix { };
         }
       );
     };
