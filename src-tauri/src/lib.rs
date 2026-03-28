@@ -1,6 +1,7 @@
 use matrix_sdk::Client;
 use tokio::sync::Mutex;
 use tauri::State;
+use anyhow::anyhow;
 
 struct MatrixState {
     client: Mutex<Option<Client>>,
@@ -41,7 +42,7 @@ struct RoomInfo {
 }
 
 #[tauri::command]
-async fn matrix_get_rooms(state: State<'_, MatrixState>) -> Result<Vec<RoomInfo>, String> {
+async fn matrix_get_rooms(state: State<'_, MatrixState>) -> anyhow::Result<Vec<RoomInfo>, String> {
     let client = {
         let lock = state.client.lock().await;
         lock.clone().ok_or_else(|| "Not logged in".to_string())?
@@ -49,7 +50,7 @@ async fn matrix_get_rooms(state: State<'_, MatrixState>) -> Result<Vec<RoomInfo>
 
     // Run an initial sync to fetch rooms (in a real app this is spun off as a background task)
     let sync_settings = matrix_sdk::config::SyncSettings::default();
-    client.sync_once(sync_settings).await.map_err(|e| format!("Sync failed: {}", e))?;
+    client.sync(sync_settings).await.map_err(|e| format!("Sync failed: {}", e))?;
 
     let joined_rooms = client.joined_rooms();
     let mut rooms = Vec::new();
